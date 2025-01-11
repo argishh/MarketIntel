@@ -14,6 +14,13 @@ try:
 except:
     OPENAI_API_KEY = None
 
+try:
+    SERPER_API_KEY = os.getenv("SERPER_API_KEY")
+except:
+    try:
+        SERPER_API_KEY = st.secrets["SERPER_API_KEY"]
+    except:
+        st.error("Please enter your SerpAPI API key in the environment variables.")
 
 # ===================== Main Function =====================
 def main():
